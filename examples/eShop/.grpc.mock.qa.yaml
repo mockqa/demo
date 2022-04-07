@@ -1,0 +1,83 @@
+---
+fileVersion: v1
+serverName: Catalog
+protoFile: "/protos/catalog.proto"
+
+# Incoming request matching is done in the order of definition,
+# sequentially, from the first one to the last one
+calls:
+  - method: GetItemById
+    request:
+      body:
+        id: 1 # Single exact item request with id 1
+    response:
+      body:
+        fromJsonFile: "./data/item1.json" # Response with Json object from file
+      status: OK
+  - method: GetItemById
+    request:
+      body:
+        id:
+          equalsTo: 2 # Single exact item request with id 2
+    response:
+      body:
+        fromYamlFile: "./data/item2.yaml" # Respond with Yaml object from file
+      status: OK
+  - method: GetItemsById
+    request:
+      body:
+        ids: # Multiple items request, containing items 5 and 6
+          contains:
+            - 5
+            - 6
+    response:
+      body:
+        fromJsonFile: "./data/item5and6.json" # Respond with whole body from Json file
+      status: OK
+  - method: GetItemsById
+    request:
+      body:
+        ids: # Multiple items request, strictly 7 and 8 requested in exact order
+          - 7
+          - 8
+    response:
+      body:
+        fromJsonFile: "./data/item7and8.yaml" # Respond with whole body from Yaml file
+      status: OK
+  - method: GetItemsById
+    request:
+      body:
+        ids: # Multiple items requesting, 3 items in total: 1,2 and 9 regardless the order
+          equivalentTo:
+            - 1
+            - 2
+            - 9
+    response:
+      body:
+        pageIndex: 1
+        pageSize: 5
+        count: 3
+        data:
+          - fromJsonFile: "./data/item1.json" # include object from Json file
+          - fromYamlFile: "./data/item2.yaml" # include object from Yaml file
+          - id: 9 # Include extra object
+            name: ".NET Black & White Mug Premium Lux"
+            description: ".NET Black & White Mug Premium Lux"
+            price: 800.5
+            picture_file_name: 9.png
+            catalog_type:
+              id: 2
+              name: Mug
+            catalog_brand:
+              id: 1
+              name: ".NET"
+            available_stock: 50
+            max_stock_threshold: 5
+            on_reorder: false
+      status: OK
+  - method: GetItemById
+    response:
+      status: NOT_FOUND # If previous requests not matched for single item request, return not found
+  - method: GetItemsById
+    response:
+      status: NOT_FOUND # If previous requests not matched for multiple items request, return not found

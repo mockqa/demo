@@ -1,0 +1,15 @@
+---
+id: 2
+name: ".NET Black & White Mug"
+description: ".NET Black & White Mug"
+price: 8.5
+picture_file_name: 2.png
+catalog_type:
+  id: 2
+  name: Mug
+catalog_brand:
+  id: 1
+  name: ".NET"
+available_stock: 50
+max_stock_threshold: 5
+on_reorder: false

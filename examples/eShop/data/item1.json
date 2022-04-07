@@ -1,0 +1,18 @@
+{
+    "id":1,
+    "name":".NET Bot Black Hoodie",
+    "description":".NET Bot Black Hoodie",
+    "price": 19.5,
+    "picture_file_name":"1.png",
+    "catalog_type":{
+            "id":1, 
+            "name":"T-Shirt"
+        },
+    "catalog_brand":{
+        "id":1,
+        "name":".NET"
+    },
+    "available_stock":100,
+    "max_stock_threshold":10,
+    "on_reorder":false
+}

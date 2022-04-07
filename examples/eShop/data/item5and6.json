@@ -1,0 +1,43 @@
+{
+    "pageIndex":1,
+    "pageSize":2,
+    "count":2,
+"data":[
+    {
+        "id":5,
+        "name":".NET Bot Black Hoodie Premium",
+        "description":".NET Bot Black Hoodie Premium",
+        "price": 190.5,
+        "picture_file_name":"5.png",
+        "catalog_type":{
+                "id":1, 
+                "name":"T-Shirt"
+            },
+        "catalog_brand":{
+            "id":1,
+            "name":".NET"
+        },
+        "available_stock":100,
+        "max_stock_threshold":10,
+        "on_reorder":false
+    },
+    {
+        "id":6,
+        "name":"Roslyn Red Sheet Premium",
+        "description":"Roslyn Red Sheet Premium",
+        "price": 80.5,
+        "picture_file_name":"6.png",
+        "catalog_type":{
+                "id":3, 
+                "name":"Sheet"
+            },
+        "catalog_brand":{
+            "id":2,
+            "name":"Other"
+        },
+        "available_stock":10,
+        "max_stock_threshold":1,
+        "on_reorder":true
+    }
+]
+}

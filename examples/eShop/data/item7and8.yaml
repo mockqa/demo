@@ -1,0 +1,33 @@
+---
+pageIndex: 1
+pageSize: 4
+count: 2
+data:
+  - id: 7
+    name: ".NET Black & White Mug Premium"
+    description: ".NET Black & White Mug Premium"
+    price: 80.5
+    picture_file_name: 7.png
+    catalog_type:
+      id: 2
+      name: Mug
+    catalog_brand:
+      id: 1
+      name: ".NET"
+    available_stock: 50
+    max_stock_threshold: 5
+    on_reorder: false
+  - id: 8
+    name: ".NET Red & White Mug Premium"
+    description: ".NET Red & White Mug Premium"
+    price: 100
+    picture_file_name: 8.png
+    catalog_type:
+      id: 2
+      name: Mug
+    catalog_brand:
+      id: 1
+      name: ".NET"
+    available_stock: 25
+    max_stock_threshold: 5
+    on_reorder: false

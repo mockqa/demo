@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package CatalogApi;
+
+message CatalogBrand {
+	int32 id = 1;
+	string name = 2;
+}
+
+message CatalogType {
+	int32 id = 1;
+	string type = 2;
+}

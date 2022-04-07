@@ -1,0 +1,31 @@
+---
+fileVersion: v1
+serverName: Counter
+protoFile: "/counter.proto"
+calls:
+
+- method: IncrementCount
+  response:
+    body:
+      count: 1
+    status: OK
+
+- method: AccumulateCount
+  request:
+    stream:
+      - count: 1
+      - count: 2
+      - count: 3
+  response:
+    body:
+      count: 6
+    status: OK
+
+- method: Countdown
+  response:
+    stream:
+      - count: 5
+      - count: 6
+      - count: 7
+      - count: 8
+      - count: 9
