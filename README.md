@@ -18,6 +18,7 @@ Scenarios:
 * Basic: unary call
 * Basic: client streaming call
 * Basic: server streaming call
+* Templating: a message property
 
 ## [Credentials](https://github.com/mockqa/demo/tree/main/examples/credentials)
 
@@ -29,6 +30,15 @@ Scenarios:
 * Credentials: Basic auth
 * Credentials: a channel and a call blended config
 * Matching: using a wildcard
+
+## [Round-Robin](https://github.com/mockqa/demo/tree/main/examples/round-robin)
+
+The example shows how to implement a round-robin behavior using scenarios and states
+
+Scenarios:
+* Basic: unary call
+* Matching: scenarios and states
+* Templating: a message property
 
 ## New demos will be added soon
 
@@ -52,6 +62,7 @@ We are planning to publish new demos that cover all scenarios in the near future
 * Matching: an element inside a nested array
 * Matching: a message to a file
 * Matching: a message property to a file
+* Matching: scenarios and states
 * Templating: random data generation
 * Templating: a message property
 * Templating: a complex message

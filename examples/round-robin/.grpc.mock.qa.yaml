@@ -1,0 +1,35 @@
+---
+fileVersion: v1
+serverName: RoundRobin
+protoFile: "/examples/round-robin/round-robin.proto"
+calls:
+
+- method: IncrementCount
+  scenario:
+    name: DemoRoundRobin
+    requiredState: started
+    newState: run2
+  response:
+    body:
+      count: 1
+    status: OK
+
+- method: IncrementCount
+  scenario:
+    name: DemoRoundRobin
+    requiredState: run2
+    newState: run3
+  response:
+    body:
+      count: 2
+    status: OK
+
+- method: IncrementCount
+  scenario:
+    name: DemoRoundRobin
+    requiredState: run3
+    newState: started
+  response:
+    body:
+      count: 3
+    status: OK
