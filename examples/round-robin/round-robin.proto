@@ -16,7 +16,7 @@ syntax = "proto3";
 
 import "google/protobuf/empty.proto";
 
-package demo.roundrobin;
+package demo;
 
 // The counter service definition.
 service Counter {

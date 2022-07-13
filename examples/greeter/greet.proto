@@ -14,7 +14,7 @@
 
 syntax = "proto3";
 
-package demo.greet;
+package demo;
 
 // The greeting service definition.
 service Greeter {

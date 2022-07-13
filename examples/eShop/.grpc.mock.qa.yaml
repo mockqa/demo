@@ -1,7 +1,7 @@
 ---
 fileVersion: v1
-serverName: Catalog
-protoFile: "/protos/catalog.proto"
+serverName: eShop
+protoFile: "/examples/eShop/protos/catalog.proto"
 
 # Incoming request matching is done in the order of definition,
 # sequentially, from the first one to the last one

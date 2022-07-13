@@ -1,7 +1,7 @@
 ---
 fileVersion: v1
 serverName: Counter
-protoFile: "/counter.proto"
+protoFile: "/examples/counter/counter.proto"
 calls:
 
 - method: IncrementCount

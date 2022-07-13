@@ -1,7 +1,7 @@
 ---
 fileVersion: v1
-serverName: Greet
-protoFile: "/greet.proto"
+serverName: Greeter
+protoFile: "/examples/greeter/greet.proto"
 
 # Incoming request matching is done in the order of definition,
 # sequentially, from the first one to the last one,
