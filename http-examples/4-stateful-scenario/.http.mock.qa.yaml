@@ -1,0 +1,68 @@
+---
+fileVersion: v1
+instanceName: StatefulScenario
+
+calls: 
+
+- url: /NextState
+  method: GET
+  scenario: 
+    name: DemoTrafficLights
+    requiredState: started, red
+    newState: green
+  response:
+    body:
+      trafficLightColor: green
+    status: OK
+
+- url: /NextState
+  method: GET
+  scenario: 
+    name: DemoTrafficLights
+    requiredState: green
+    newState: yellow
+  response:
+    body:
+      trafficLightColor: yellow
+    status: OK
+
+- url: /NextState
+  method: GET
+  scenario: 
+    name: DemoTrafficLights
+    requiredState: yellow
+    newState: red
+  response:
+    body:
+      trafficLightColor: red
+    status: OK
+
+- url: /CurrentState
+  method: GET
+  scenario: 
+    name: DemoTrafficLights
+    requiredState: started, red
+  response:
+    body:
+      trafficLightColor: red
+    status: OK
+
+- url: /CurrentState
+  method: GET
+  scenario: 
+    name: DemoTrafficLights
+    requiredState: green
+  response:
+    body:
+      trafficLightColor: green
+    status: OK
+
+- url: /CurrentState
+  method: GET
+  scenario: 
+    name: DemoTrafficLights
+    requiredState: yellow
+  response:
+    body:
+      trafficLightColor: yellow
+    status: OK

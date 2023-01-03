@@ -1,0 +1,30 @@
+---
+fileVersion: v1
+instanceName: DynamicTemplating
+protoFile: "/grpc-examples/protos/greet.proto"
+
+# Incoming request matching is done in the order of definition,
+# sequentially, from the first one to the last one,
+# once match is found, the processing stops
+calls: 
+# We try to match a call to (Joe OR Kelly)
+- method: demo.Greeter/SayHello
+  request:
+    body:
+      Name:
+        equalsTo:
+          - "Joe"
+          - "Kelly"
+  response:
+    body:
+      Message: "Hello {{ request.body.name }}!"
+    status: OK
+
+# And if no match, fall back to NotFound
+- method: demo.Greeter/SayHello
+  # "request" section is optional and may absent
+  #   -  if "request" section is absent 
+  #      then any call is matched
+  response:
+    statusCode: NOT_FOUND
+    statusDetails: Name not found

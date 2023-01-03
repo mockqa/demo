@@ -1,0 +1,41 @@
+---
+fileVersion: v1
+instanceName: DataGeneration
+protoFile: "/grpc-examples/protos/user-service.proto"
+
+calls:
+
+- method: demo.UserService/GetUser
+  response:
+    header:
+      "X-Correlation-Id": "{{ faker.random.guid }}"
+    body:
+      id: "{{ faker.random.number }}"
+      login: "{{ request.body.login }}"
+      firstName: "{{ faker.name.first_name female }}"
+      lastName: "{{ faker.name.last_name female }}"
+      fullName: "{{ response.body.firstName }} {{ response.body.lastName }}"
+      email: "{{ faker.internet.email response.body.firstName response.body.lastName }}"
+      avatar: "{{ faker.internet.avatar }}"
+      balance: "{{ faker.finance.amount }}"
+    status: OK
+
+- method: demo.UserService/GetAllUsers
+  response:
+    header:
+      "X-Correlation-Id": "{{ faker.random.guid }}"
+    body:
+      users:
+        repeat:
+          count: "{{ faker.random.number 2 10 }}"
+          item:
+            id: "{{ repeat.index }}"
+            firstName: "{{ faker.name.first_name female }}"
+            lastName: "{{ faker.name.last_name female }}"
+            fullName: "{{ repeat.item.firstName }} {{ repeat.item.lastName }}"
+            login: "{{ faker.internet.user_name repeat.item.firstName repeat.item.lastName }}"
+            email: "{{ faker.internet.email repeat.item.firstName repeat.item.lastName }}"
+            avatar: "{{ faker.internet.avatar }}"
+            balance: "{{ faker.finance.amount }}"
+    status: OK
+

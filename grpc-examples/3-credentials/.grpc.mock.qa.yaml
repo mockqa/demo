@@ -1,0 +1,53 @@
+---
+fileVersion: v1
+instanceName: Credentials
+protoFile: "/grpc-examples/protos/greet.proto"
+
+# limit all connections using an IP address white list
+channel:
+  credentials:
+  - type: ip-white-list
+    allowedIps:
+    - 190.152.123.*    # wildcards are supported
+    - 192.188.53.0/24  # CIDR notation is supported
+    - "*.*.*.*"
+
+# Incoming request matching is done in the order of definition,
+# sequentially, from the first one to the last one,
+# once match is found, the processing stops
+calls: 
+
+# First, we try to match a call to Joe
+- method: demo.Greeter/SayHello
+  credentials:
+  - type: basic-auth
+    user: joe
+    # do not store plain-text password, use 'Encrypt a string' feature instead:
+    # https://mock.qa/docs/security-features#encrypted-parameters
+    password: joe-password
+  response:
+    body:
+      Message: Hello Joe!
+    status: OK
+
+# Then, we try to match a call to Kelly
+- method: demo.Greeter/SayHello
+  credentials:
+  - type: basic-auth
+    user: kelly
+    # do not store plain-text password, use 'Encrypt a string' feature instead:
+    # https://mock.qa/docs/security-features#encrypted-parameters
+    password: kelly-password
+  response:
+    body:
+      Message: Hello Kelly!
+    status: OK
+
+# And if no match, fall back to NotFound
+- method: demo.Greeter/SayHello
+  # "request" section is optional and may absent
+  #   -  if "request" section is absent 
+  #      then any call of the method is matched
+  response:
+    statusCode: NOT_FOUND
+    statusDetails: Name not found

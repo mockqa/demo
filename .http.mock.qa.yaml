@@ -1,0 +1,6 @@
+﻿#include /http-examples/1-hello-world/.http.mock.qa.yaml
+#include /http-examples/2-dynamic-templating/.http.mock.qa.yaml
+#include /http-examples/3-credentials/.http.mock.qa.yaml
+#include /http-examples/4-stateful-scenario/.http.mock.qa.yaml
+#include /http-examples/5-data-generation/.http.mock.qa.yaml
+#include /http-examples/6-url-routing/.http.mock.qa.yaml

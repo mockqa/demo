@@ -1,0 +1,7 @@
+#include /grpc-examples/1-hello-world/.grpc.mock.qa.yaml
+#include /grpc-examples/2-dynamic-templating/.grpc.mock.qa.yaml
+#include /grpc-examples/3-credentials/.grpc.mock.qa.yaml
+#include /grpc-examples/4-stateful-scenario/.grpc.mock.qa.yaml
+#include /grpc-examples/5-data-generation/.grpc.mock.qa.yaml
+#include /grpc-examples/6-server-streaming/.grpc.mock.qa.yaml
+#include /grpc-examples/7-client-streaming/.grpc.mock.qa.yaml

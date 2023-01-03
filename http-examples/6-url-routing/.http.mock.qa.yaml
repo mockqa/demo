@@ -1,0 +1,45 @@
+---
+fileVersion: v1
+instanceName: UrlRouting
+
+calls: 
+
+# URL query routing
+
+- url: /SayHello?name={Name}
+  method: GET
+  request:
+    url_query:
+      Name: 
+        equalsTo: # means (Joe OR Kelly)
+          - "Joe"
+          - "Kelly"
+  response:
+    body:
+      Message: "Hello {{ request.url_query.name }}!"
+    status: OK
+
+- url: /SayHello?name={Name}
+  method: GET
+  response:
+    statusCode: NOT_FOUND
+
+# URL path routing
+
+- url: /SayHello/{name}
+  method: GET
+  request:
+    url_path:
+      Name: 
+        equalsTo: # means (Joe OR Kelly)
+          - "Joe"
+          - "Kelly"
+  response:
+    body:
+      Message: "Hello {{ request.url_path.name }}!"
+    status: OK
+
+- url: /SayHello/{name}
+  method: GET
+  response:
+    statusCode: NOT_FOUND

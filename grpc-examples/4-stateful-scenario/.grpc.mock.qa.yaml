@@ -1,0 +1,63 @@
+---
+fileVersion: v1
+instanceName: StatefulScenario
+protoFile: "/grpc-examples/protos/traffic-light-service.proto"
+
+calls: 
+
+- method: demo.TrafficLightService/NextState
+  scenario: 
+    name: DemoTrafficLights
+    requiredState: started, red
+    newState: green
+  response:
+    body:
+      trafficLightColor: green
+    status: OK
+
+- method: demo.TrafficLightService/NextState
+  scenario: 
+    name: DemoTrafficLights
+    requiredState: green
+    newState: yellow
+  response:
+    body:
+      trafficLightColor: yellow
+    status: OK
+
+- method: demo.TrafficLightService/NextState
+  scenario: 
+    name: DemoTrafficLights
+    requiredState: yellow
+    newState: red
+  response:
+    body:
+      trafficLightColor: red
+    status: OK
+
+- method: demo.TrafficLightService/CurrentState
+  scenario: 
+    name: DemoTrafficLights
+    requiredState: started, red
+  response:
+    body:
+      trafficLightColor: red
+    status: OK
+
+- method: demo.TrafficLightService/CurrentState
+  scenario: 
+    name: DemoTrafficLights
+    requiredState: green
+  response:
+    body:
+      trafficLightColor: green
+    status: OK
+
+- method: demo.TrafficLightService/CurrentState
+  scenario: 
+    name: DemoTrafficLights
+    requiredState: yellow
+  response:
+    body:
+      trafficLightColor: yellow
+    status: OK

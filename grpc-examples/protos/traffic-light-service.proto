@@ -1,0 +1,18 @@
+﻿// mock.qa demo
+// Stateful scenario
+
+syntax = "proto3";
+
+package demo;
+
+service TrafficLightService {
+  rpc NextState (Request) returns (Reply);
+  rpc CurrentState (Request) returns (Reply);
+}
+
+message Request {
+}
+
+message Reply {
+  string trafficLightColor = 1;
+}

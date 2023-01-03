@@ -1,0 +1,33 @@
+﻿// mock.qa demo
+// Data generation
+
+syntax = "proto3";
+
+package demo;
+
+service UserService {
+  rpc GetUser (GetUserRequest) returns (User);
+  rpc GetAllUsers (GetAllUsersRequest) returns (Users);
+}
+
+message GetUserRequest {
+  string login = 1;
+}
+
+message GetAllUsersRequest {
+}
+
+message User {
+  int32 id = 1;
+  string login = 2;
+  string firstName = 3;
+  string lastName = 4;
+  string fullName = 5;
+  string email = 6;
+  string avatar = 7;
+  double balance = 8;
+}
+
+message Users {
+  repeated User users = 1;
+}

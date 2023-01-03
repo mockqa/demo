@@ -1,0 +1,17 @@
+---
+fileVersion: v1
+instanceName: ClientStreaming
+protoFile: "/grpc-examples/protos/counter.proto"
+calls:
+
+- method: demo.Counter/AccumulateCount
+  request:
+    stream:
+      - count: 1
+      - count: 2
+      - count: 3
+      - count: 4
+  response:
+    body:
+      count: 10
+    status: OK

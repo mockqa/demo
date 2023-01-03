@@ -1,0 +1,18 @@
+---
+fileVersion: v1
+instanceName: ServerStreaming
+protoFile: "/grpc-examples/protos/counter.proto"
+calls:
+
+- method: demo.Counter/Countdown
+  response:
+    stream:
+      - count: 9
+      - count: 8
+      - count: 7
+      - count: 6
+      - count: 5
+      - count: 4
+      - count: 3
+      - count: 2
+      - count: 1
