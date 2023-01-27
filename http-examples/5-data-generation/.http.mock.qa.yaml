@@ -5,7 +5,7 @@ instanceName: DataGeneration
 calls:
 
 - url: /GetUser
-  method: POST
+  method: GET
   response:
     header:
       "X-Correlation-Id": "{{ faker.random.guid }}"
@@ -21,7 +21,7 @@ calls:
     status: OK
 
 - url: /GetAllUsers
-  method: POST
+  method: GET
   response:
     header:
       "X-Correlation-Id": "{{ faker.random.guid }}"
