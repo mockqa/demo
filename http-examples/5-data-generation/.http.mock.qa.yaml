@@ -4,14 +4,14 @@ instanceName: DataGeneration
 
 calls:
 
-- url: /GetUser
+- url: /GetUser/{login}
   method: GET
   response:
     header:
       "X-Correlation-Id": "{{ faker.random.guid }}"
     body:
       id: "{{ faker.random.number }}"
-      login: "{{ request.body.login }}"
+      login: "{{ request.url_path.login }}"
       firstName: "{{ faker.name.first_name female }}"
       lastName: "{{ faker.name.last_name female }}"
       fullName: "{{ response.body.firstName }} {{ response.body.lastName }}"
