@@ -23,3 +23,4 @@ Demo repository on GitHub: https://github.com/mockqa/demo
 - [Data generation](https://github.com/mockqa/demo/tree/main/http-examples/5-data-generation/.http.mock.qa.yaml)
 - [URL Routing](https://github.com/mockqa/demo/tree/main/http-examples/6-url-routing/.http.mock.qa.yaml)
 
+[![Backup Status](https://cloudback.it/badge/mockqa/demo)](https://cloudback.it)
